@@ -15,7 +15,7 @@
         <th scope="col">Rating</th>
     </tr>
     <!--individual movie rows-->
-    {%for movie in movies:%}
+    {%for movie in movies.values():%}
     <tr>
         <td>{{movie.title}}</td>
         <td>{{movie.director}}</td>
