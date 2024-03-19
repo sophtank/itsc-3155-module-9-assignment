@@ -6,12 +6,14 @@ movie_repository = get_movie_repository()
 
 #test when no movies are in list
 def test_get_all_movies_empty():
+    movie_repository.clear_db()
     #assert that get_all_movies returns an empty dictionary
     assert movie_repository.get_all_movies() == {}
 
 
 #test when there are movies in list
 def test_get_all_movies():
+    movie_repository.clear_db()
     #add some movies
     movie_repository.create_movie("My Movie", "Ashleigh Sico", "5")
     movie_repository.create_movie("Another Movie", "John Doe", "3")
