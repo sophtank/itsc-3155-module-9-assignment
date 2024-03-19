@@ -39,6 +39,7 @@ def search_movies():
 
 @app.get('/movies/<int:movie_id>')
 def get_single_movie(movie_id: int):
+    # Note to Sean Add delete button for this page
     # TODO: Feature 4
     return render_template('get_single_movie.html')
 
