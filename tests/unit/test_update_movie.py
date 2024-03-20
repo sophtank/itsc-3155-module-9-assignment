@@ -1,5 +1,6 @@
 # TODO: Feature 5
 from src.models.movie import Movie
+from app import app
 
 
 def test_update_movie():
@@ -10,3 +11,13 @@ def test_update_movie():
     assert movie.title == 'Star Wars'
     assert movie.director == 'George Lucas'
     assert movie.rating == 5
+    
+    response = app.post("/movies/{movie.id}", data ={
+        "title" : "Life of Pi",
+        "director" : " Ang Lee",
+        "rating" : "4"
+        }, follow_redirects=True)
+    
+    assert response.status_code == 200
+    
+
