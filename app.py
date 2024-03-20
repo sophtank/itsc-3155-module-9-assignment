@@ -28,6 +28,7 @@ def create_movies_form():
 def create_movie():
     # TODO: Feature 2
     # After creating the movie in the database, we redirect to the list all movies page
+    
     return redirect('/movies')
 
 
@@ -36,7 +37,7 @@ def search_movies():
     # TODO: Feature 3   
     title = request.args.get('title')
     if title is not None:
-        movie =movie_repository.get_movie_by_title(title.lower())
+        movie =movie_repository.get_movie_by_title(title)
         if movie:
             return render_template('search_movies.html', search_active = True, movie = movie, error = None)
         else: 
