@@ -6,4 +6,47 @@
 <h1 class="mb-5">Search Movie Ratings</h1>
 <p class="mb-3">Search for a movie rating below</p>
 <!-- TODO: Feature 3 -->
+<form action = "/movies/search" method = "GET">
+<div class="mb-3">
+    <label for = "searchmovie" class = "form-label"> Movie Search </label>
+        <div class = "input group">
+        <input type = "text" class = "form-control rounded-start" name ="title" placeholder = "Enter a movie title" aria label = "Movie Title">
+        <br>
+        
+        <button type = "submit" class = "btn btn-primary rounded end"> Search </button>
+        </div>
+    </div>
+</form>
+    <div container> 
+        {% if movie %}
+        <div class = "table-responsive">
+            <table class = "table table-striped">
+        <thead>
+            <tr> 
+                <th scope = "col"> Title </th>
+                <th scope = "col"> Director </th>
+                <th scope = "col"> Rating </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="cursor: pointer;" onclick="window.location='/movies/{{ movie.title }}';">
+            <td> {{movie.title}} </td>
+            <td> {{movie.director}} </td>
+            <td> {{movie.rating}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{%endif%}
+
+    
+        {%if error%}
+    <div class = "alert alert-danger" role = "alert">
+        {{ error}}
+    </div>
+    
+    {%endif%}
+</div>
+    
 {% endblock %}

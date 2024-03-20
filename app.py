@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 
 from src.repositories.movie_repository import get_movie_repository
 
@@ -33,9 +33,13 @@ def create_movie():
 
 @app.get('/movies/search')
 def search_movies():
-    # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
-
+    # TODO: Feature 3   
+    title = request.args.get('title')
+    movie =movie_repository.get_movie_by_title(title)
+    if movie:
+        return render_template('search_movies.html', search_active = True, movie = movie)
+    else: 
+        return render_template('search_movies.html', search_active = True,error = "Movie Not Found") 
 
 @app.get('/movies/<int:movie_id>')
 def get_single_movie(movie_id: int):
