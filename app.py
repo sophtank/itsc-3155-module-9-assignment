@@ -7,7 +7,6 @@ app = Flask(__name__)
 # Get the movie repository singleton to use throughout the application
 movie_repository = get_movie_repository()
 
-
 @app.get('/')
 def index():
     return render_template('index.html')
@@ -44,9 +43,16 @@ def search_movies():
 
 @app.get('/movies/<int:movie_id>')
 def get_single_movie(movie_id: int):
-    # Note to Sean Add delete button for this page
-    # TODO: Feature 4
-    return render_template('get_single_movie.html')
+    current_movie = movie_repository.get_movie_by_id(movie_id)
+    if current_movie == None:
+        title, director, rating = " ", " ", " "
+        exists = 0
+    else:
+        exists = 1
+        title = current_movie.title
+        director = current_movie.director
+        rating = current_movie.rating
+    return render_template('get_single_movie.html', title=title, director=director, rating=rating, exists = exists)
 
 
 @app.get('/movies/<int:movie_id>/edit')
@@ -57,7 +63,6 @@ def get_edit_movies_page(movie_id: int):
 @app.post('/movies/<int:movie_id>')
 def update_movie(movie_id: int):
     # TODO: Feature 5
-    # After updating the movie in the database, we redirect back to that single movie page
     return redirect(f'/movies/{movie_id}')
 
 
