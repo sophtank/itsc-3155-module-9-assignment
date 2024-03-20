@@ -6,4 +6,25 @@
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
 <!-- TODO: Feature 2 -->
+<form Action="/movies" method="POST">
+    <div class="mb-3">
+      <label for="movieName" class="form-label">Movie Name</label>
+      <input name = "Mname" type="text" class="form-control" id="MovieName" required>
+    </div>
+    <div class="mb-3">
+        <label for="DirectorName" class="form-label">Director Name</label>
+        <input name="Dname" type="text" class="form-control" id="DirectorName" required>
+    </div>
+    <div>
+        <label for="MovieRating" class="form-label">Rating</label>
+        <select name="rating" class="form-select" aria-label="Size 3 select example" id="MovieRating" required>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 {% endblock %}
