@@ -28,7 +28,6 @@ def create_movies_form():
 def create_movie():
     # TODO: Feature 2
     # After creating the movie in the database, we redirect to the list all movies page
-    
     return redirect('/movies')
 
 
