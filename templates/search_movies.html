@@ -37,16 +37,11 @@
         </tbody>
     </table>
 </div>
-
-{%endif%}
-
-    
-        {%if error%}
-    <div class = "alert alert-danger" role = "alert">
-        {{ error}}
-    </div>
-    
-    {%endif%}
+{% endif %}
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
 </div>
-    
+{% endif %}
+</div>
 {% endblock %}
