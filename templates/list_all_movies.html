@@ -13,13 +13,16 @@
         <th scope="col">Title</th>
         <th scope="col">Director</th>
         <th scope="col">Rating</th>
+        <th scope="col"></th>
     </tr>
     <!--individual movie rows-->
-    {%for movie in movies.values():%}
+    {%for movie_id, movie in movies.items():%}
     <tr>
         <td>{{movie.title}}</td>
         <td>{{movie.director}}</td>
         <td>{{movie.rating}}</td>
+        
+        <td><form action = "/movies/{{ movie_id }}/delete" method="POST"><button type = "submit" class = "btn btn-primary">Delete</button></form></td>
     </tr>
     {%endfor%}
 </table>
@@ -28,3 +31,4 @@
 <h1>There currently no movies.</h1>
 {%endif%}
 {% endblock %}
+
