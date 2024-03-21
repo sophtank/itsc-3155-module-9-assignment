@@ -18,11 +18,11 @@
     <!--individual movie rows-->
     {%for movie_id, movie in movies.items():%}
     <tr>
-        <td>{{movie.title}}</td>
+        <td><a href="/movies/{{movie.movie_id}}">{{movie.title}}</a></td>
         <td>{{movie.director}}</td>
         <td>{{movie.rating}}</td>
         
-        <td><form action = "/movies/{{ movie_id }}/delete" method="POST"><button type = "submit" class = "btn btn-primary">Delete</button></form></td>
+        <td><form action = "/movies/{{movie.movie_id }}/delete" method="POST"><button type = "submit" class = "btn btn-primary">Delete</button></form></td>
     </tr>
     {%endfor%}
 </table>
