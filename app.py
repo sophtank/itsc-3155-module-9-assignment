@@ -60,7 +60,6 @@ def update_movie(movie_id: int):
         movie.director =  request.form['director']
     if request.form['rating'] != '':
         movie.rating =  request.form['rating']
-    print(f"{movie.director} {movie.title} {movie.rating}")
     return redirect(f'/movies/{movie_id}')
 
 
