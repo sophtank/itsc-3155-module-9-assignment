@@ -18,7 +18,7 @@
     <!--individual movie rows-->
     {%for movie_id, movie in movies.items():%}
     <tr>
-        <td>{{movie.title}}</td>
+        <td><a href="/movies/{{movie.movie_id}}">{{movie.title}}</a></td>
         <td>{{movie.director}}</td>
         <td>{{movie.rating}}</td>
         
