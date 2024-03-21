@@ -72,8 +72,6 @@ def get_edit_movies_page(movie_id: int):
 @app.post('/movies/<int:movie_id>')
 def update_movie(movie_id: int):
     # TODO: Feature 5
-<<<<<<< HEAD
-=======
     # After updating the movie in the database, we redirect back to that single movie page
     movie = movie_repository.get_movie_by_id(movie_id)
     if request.form['title'] != '' :
@@ -82,7 +80,6 @@ def update_movie(movie_id: int):
         movie.director =  request.form['director']
     if request.form['rating'] != '':
         movie.rating =  request.form['rating']
->>>>>>> edit_movie
     return redirect(f'/movies/{movie_id}')
 
 
