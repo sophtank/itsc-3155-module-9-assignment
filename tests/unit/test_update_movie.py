@@ -12,12 +12,15 @@ def test_update_movie():
     assert movie.director == 'George Lucas'
     assert movie.rating == 5
     
-    response = app.post("/movies/{movie.id}", data ={
+    response = app.post(f"/movies/{movie.movie_id}", data ={
         "title" : "Life of Pi",
-        "director" : " Ang Lee",
+        "director" : "Ang Lee",
         "rating" : "4"
         }, follow_redirects=True)
     
     assert response.status_code == 200
     
+    assert movie.title == "Life of Pi"
+    assert movie.director == "Ang Lee"
+    assert movie.rating == "4"
 
