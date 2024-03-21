@@ -37,8 +37,16 @@ def create_movie():
 
 @app.get('/movies/search')
 def search_movies():
-    # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
+    # TODO: Feature 3   
+    title = request.args.get('title')
+    if title is not None:
+        movie =movie_repository.get_movie_by_title(title)
+        if movie:
+            return render_template('search_movies.html', search_active = True, movie = movie, error = None)
+        else: 
+            return render_template('search_movies.html', search_active = True,error = "Movie Not Found") 
+    else:    
+        return render_template('search_movies.html', search_active=True, error="Please provide a movie title")
 
 
 @app.get('/movies/<int:movie_id>')
