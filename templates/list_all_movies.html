@@ -22,8 +22,8 @@
         <td>{{movie.director}}</td>
         <td>{{movie.rating}}</td>
         
-        <td><form action = "/movies/{{ movie_id }}/delete" method="POST"><button type = "submit" class = "btn btn-primary">Delete</button></form></td>
-    </tr>
+        <td><form action = "/movies/{{ movie_id }}/edit" method="GET"><button type = "submit" class = "btn btn-secondary">Edit</button></form></td>
+        <td><form action = "/movies/{{ movie_id }}/delete" method="POST"><button type = "submit" class = "btn btn-primary">Delete</button></form></td>    </tr>
     {%endfor%}
 </table>
 {%else%}
